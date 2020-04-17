@@ -105,8 +105,8 @@ def check_ups():
 	#check load
 	snip_load = check_value(load, "load", options.load_warn, options.temp_crit)
 	
-	#check battery load
-	snip_batt = check_value(batt, "battery load", options.bat_warn, options.bat_crit, True)
+	#check battery charge
+	snip_batt = check_value(batt, "battery charge", options.bat_warn, options.bat_crit, True)
 	
 	#check battery time (optional)
 	if options.time_warn or options.time_crit:
@@ -134,7 +134,7 @@ def check_ups():
 		perfdata = "{0} 'load'={1};{2};{3};{4};{5}".format(perfdata, load, float(options.load_warn), float(options.load_crit), 0.0, 100.0)
 		
 		#battery charge
-		perfdata = "{0} 'battery_load'={1};{2};{3};{4};{5}".format(perfdata, batt, float(options.bat_warn), float(options.bat_crit), 0.0, 100.0)
+		perfdata = "{0} 'battery_charge'={1};{2};{3};{4};{5}".format(perfdata, batt, float(options.bat_warn), float(options.bat_crit), 0.0, 100.0)
 		
 		#battery time
 		if options.time_warn or options.time_crit:
