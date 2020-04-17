@@ -142,6 +142,11 @@ def check_ups():
 	else: perfdata=""
 	
 	#return result
+	snip_temp = snip_temp[:len(snip_temp)-1] + "C" + snip_temp[len(snip_temp)-1:]
+	snip_load = snip_load[:len(snip_load)-1] + "%" + snip_load[len(snip_load)-1:]
+	snip_batt = snip_batt[:len(snip_batt)-1] + "%" + snip_batt[len(snip_batt)-1:]
+	snip_time = snip_time[:len(snip_time)-1] + "mins" + snip_time[len(snip_time)-1:]
+	snip_consum = snip_consum[:len(snip_consum)-1] + "W" + snip_consum[len(snip_consum)-1:]
 	snips = [x for x in [snip_temp, snip_load, snip_batt, snip_time, snip_consum] if x != ""]
 	print "{0}: {1}{2}".format(get_return_str(), str(", ".join(snips)), perfdata)
 	exit(state)
